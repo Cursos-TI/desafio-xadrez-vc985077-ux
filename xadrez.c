@@ -1,54 +1,59 @@
 #include <stdio.h>
 
+void movimento(int passosT){
+    if (passosT < 5){
+        printf("Direita\n");
+        movimento(passosT + 1);//Bloco Torre
+    }
+}  
+
+void movimento1(int passosB){
+    for (passosB = 0;passosB < 5 ; passosB++){//Loop Externo
+        printf("Cima\n");
+
+         if (passosB % 1 == 0){ //Loop interno
+            printf("Direita\n");
+            }
+        }
+}
+
+void movimento2(int passosR){
+    for ( passosR = 0; passosR < 8; passosR++){
+        printf("Esquerda\n");
+    }     
+}
+
+void movimento3(int passosC){
+    for(passosC = 0;passosC < 2; passosC++)//Loop externo
+    {
+        printf("Cima\n");
+
+        if (passosC % 3 == 1) //Loop interno
+        {
+            printf("Direita\n");
+        }
+    }
+}
+
 int main(){
-    
+
     int Torre = 0, Rainha = 0, Bispo = 0, Cavalo = 0;
 
     printf(" ** Torre **\n");
-    while (Torre < 5) //Condição para Torre
-    {
-        printf("Direita\n"); //Saída Torre
-
-        Torre++; //incremento de Torre
-    }
-    printf("\n");
+    movimento(Torre);
+    printf("\n");//print de Torre
 
     printf(" ** Bispo **\n");
-    do
-    {
-        printf("Direita\n"); //Ação
-        
-        Bispo++; //Incremento Rainha
+    movimento1(Bispo);
+    printf("\n");//print de Bispo
 
-        if (Bispo <= 5) //Condição if para soma
-        {
-            printf("Cima");
-        }
-        printf("\n");
-        
-    } while (Bispo < 5); // Saída while
-    printf("\n");
-
-    printf(" ** Rainha **\n"); 
-    for ( Rainha = 0; Rainha < 8; Rainha++) //Loop peça Rainha
-    {
-        printf("Esquerda\n");
-    }
-    printf("\n");
-
+    printf(" ** Rainha **\n");
+    movimento2(Rainha);
+    printf("\n");//print da Rainha
 
     printf(" ** Cavalo **\n");
-    for ( Cavalo = 0; Cavalo < 1; Cavalo++) //Loop externo Cavalo
-    {
-        while (Cavalo < 2) //Loop interno
-        {
-            printf("Baixo\n"); //Saída interna
-            Cavalo++;
-        }
-        
-        printf("Esquerda\n"); // Saída externa
-    }
-    
-    
+    movimento3(Cavalo);
+    printf("\n");//print do Cavalo
+
     return 0;
 }
